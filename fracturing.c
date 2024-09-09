@@ -84,7 +84,7 @@ double calculateArea()
     // Print the result
     printf("The area of the city encompassed by your request is %.2lf\n\n", area);
 
-    return 3.0; 
+   return 3.0; 
 }
 
 double calculateWidth() 
