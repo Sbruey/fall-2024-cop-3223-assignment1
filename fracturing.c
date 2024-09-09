@@ -1,47 +1,120 @@
+//Author: Shanya Bruey
+//Class: UCF COP 3223
+//Purpose: Programing Assignment 1
+//Professor: Juan Parra
+//Date: 9/8/24
+
 #include <stdio.h>
-#include <math.h> 
+#include <math.h>
 
-int main(int argc, char **argv)
+// Define PI as the required value
+#define PI 3.14159
+
+// Function prototypes
+double calculateDistance();
+double calculatePerimeter();
+double calculateArea();
+double calculateWidth();
+double calculateHeight();
+double askForUserInput();
+
+int main(int argc, char **argv) 
 {
-      double calculateDistance();
-      double perimeter();
-      double area();
-      double height();
-      double width();
+    // Call the functions to avoid redundancy
+    calculateDistance();
+    calculatePerimeter();
+    calculateArea();
+    calculateWidth();
+    calculateHeight();
 
-      int x1 = 0;
-      int x2 = 0;
-      int y1 = 0;
-      int y2 = 0; 
-
-      printf("Enter your points: ");
-
-      printf("\nx1: ");
-      scanf("%d", &x1);
-
-      printf("x2: ");
-      scanf("%d", &x2);
-
-      printf("y1: ");
-      scanf("%d", &y1);
-
-      printf("y2: ");
-      scanf("%d", &y2);
-
-      return 0;
-
-      double calculateDistance();
-    {
-      double distance = sqrt(((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1)));
-
-      printf("The distance between the two points is %lf", distance);
-
-      printf("/nPoint #1 entered:x1 = %d, y1 = %d", x1, y1); 
-      printf("Point #2 entered:x2 = %d, y2 = %d", x2, y2); 
-
-      return 3; 
-    }
+    return 0;  
 }
 
+double calculateDistanceHelper()
+{
+    // Prompting the user to input their value using askForUserInput function 
+    double x1, y1, x2, y2;
+    printf("Enter points: \n");
+    x1 = askForUserInput();
+    y1 = askForUserInput();
+    x2 = askForUserInput();
+    y2 = askForUserInput();
+    
+    // Print the resuls
+    printf("\nPoint #1 entered: x1 = %.2lf; y1 = %.2lf\n", x1, y1);
+    printf("Point #2 entered: x2 = %.2lf; y2 = %.2lf\n", x2, y2);
+    printf("\n");
 
-      
+    // Calculate the distance between points
+    double distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+    
+    return distance;
+}
+
+double calculateDistance() 
+{
+    // Call the calculateDistance function to avoid redundancy
+    double distance = calculateDistanceHelper();
+    
+    // Print the result
+    printf("The distance between the two points is %.2lf\n\n", distance);
+
+    return distance;
+}
+
+double calculatePerimeter()
+{
+    // Call the calculateDistanceHelper function to avoid redundancy
+    double distance = calculateDistanceHelper();
+    double perimeter = 2 * PI * (distance / 2);  
+
+    // Print the result
+    printf("The perimeter of the city encompassed by your request is %.2lf\n\n", perimeter);
+
+    return 3.0; 
+}
+
+double calculateArea() 
+{
+    // Call the calculateDistanceHelper function to avoid redundancy
+    double distance = calculateDistanceHelper();
+    double radius = distance / 2;
+    double area = PI * pow(radius, 2);
+
+    // Print the result
+    printf("The area of the city encompassed by your request is %.2lf\n\n", area);
+
+    return 3.0; 
+}
+
+double calculateWidth() 
+{
+    // Call the calculateDistancehelper function to avoid redundancy
+    double distance = calculateDistanceHelper();
+    
+    // Assuming width is the same as the diameter
+    // Print the result
+    printf("The width of the city encompassed by your request is %.2lf\n\n", distance);
+
+    return 1.0; 
+}
+
+double calculateHeight() 
+{
+    // Call the calculateDistanceHelper function to avoid redundancy
+    double distance = calculateDistanceHelper();
+    
+    // Assuming height is the same as the diameter
+    // Print the result
+    printf("The height of the city encompassed by your request is %.2lf\n\n", distance);
+
+    return 1.0; 
+}
+
+double askForUserInput() 
+{
+    //Promting the user to input a double value
+    double value;
+    scanf("%lf", &value);
+    return value; 
+}
