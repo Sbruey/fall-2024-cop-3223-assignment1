@@ -1,5 +1,5 @@
 //Author: Shanya Bruey
-//UCFID 4802517
+//UCFID: 4802517
 //Class: UCF COP 3223
 //Purpose: Programing Assignment 1
 //Professor: Juan Parra
@@ -34,11 +34,11 @@ int main(int argc, char **argv)
 double calculateDistanceHelper()
 {
     // Prompting the user to input their value using askForUserInput function 
-    double x1, y1, x2, y2;
+    double x1, x2, y1, y2;
     printf("Enter points: \n");
     x1 = askForUserInput();
-    y1 = askForUserInput();
     x2 = askForUserInput();
+    y1 = askForUserInput();
     y2 = askForUserInput();
     
     // Print the resuls
